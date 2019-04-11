@@ -97,9 +97,9 @@ func GetRaceResults(season string, params map[string]string) (*RaceResultsDto, e
 	}
 	joinedParams := strings.Join(paramSlice, "/")
 	if params != nil {
-		url = fmt.Sprintf("http://ergast.com/api/f1/%s/results.json", season)
-	} else {
 		url = fmt.Sprintf("http://ergast.com/api/f1/%s/%s/results.json", season, joinedParams)
+	} else {
+		url = fmt.Sprintf("http://ergast.com/api/f1/%s/results.json", season)
 	}
 	err := GetObj(url, &res)
 	if err != nil {

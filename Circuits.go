@@ -46,11 +46,12 @@ func GetCircuit(season string, params map[string]string) (*CircuitDto, error) {
 	}
 	joinedParams := strings.Join(paramSlice, "/")
 	if params != nil {
-		url = fmt.Sprintf("http://ergast.com/api/f1/%s/circuits.json", season)
-	} else {
 		url = fmt.Sprintf("http://ergast.com/api/f1/%s/%s/circuits.json", season, joinedParams)
+	} else {
+		url = fmt.Sprintf("http://ergast.com/api/f1/%s/circuits.json", season)
 	}
 	err := GetObj(url, &res)
+	fmt.Println(url)
 	if err != nil {
 		fmt.Println(err)
 		return nil, err

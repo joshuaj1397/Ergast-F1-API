@@ -2,6 +2,7 @@ package ergast
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"time"
@@ -12,6 +13,13 @@ var (
 		Timeout: time.Second * 5,
 	}
 )
+
+func Test() {
+	circuitRes, _ := GetCircuit("2007", nil)
+	fmt.Println(circuitRes)
+	raceRes, _ := GetRaceResults("2010", nil)
+	fmt.Println(raceRes)
+}
 
 // GetObj is a simple wrapper for GET requests
 func GetObj(url string, obj interface{}) error {
