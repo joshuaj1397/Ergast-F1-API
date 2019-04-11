@@ -50,8 +50,8 @@ func GetCircuit(season string, params map[string]string) (*CircuitDto, error) {
 	} else {
 		url = fmt.Sprintf("http://ergast.com/api/f1/%s/circuits.json", season)
 	}
-	err := GetObj(url, &res)
 	fmt.Println(url)
+	err := GetObj(url, &res)
 	if err != nil {
 		fmt.Println(err)
 		return nil, err

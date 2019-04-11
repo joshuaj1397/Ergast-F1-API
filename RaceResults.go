@@ -102,6 +102,7 @@ func GetRaceResults(season string, params map[string]string) (*RaceResultsDto, e
 		url = fmt.Sprintf("http://ergast.com/api/f1/%s/results.json", season)
 	}
 	err := GetObj(url, &res)
+	fmt.Println(url)
 	if err != nil {
 		fmt.Println(err)
 		return nil, err
